@@ -7,19 +7,20 @@ function concate(arr,i){
     
     if(i===arr.length)
     {
-        return 
+        
+        return res
     }
 
     res+=arr[i]
-    i++
-  concate(arr,i)
+    
+   return concate(arr,++i)
     
 }
 
 // let str=""
-    // let result= concate(arr,i)
-    concate(arr,i)
-console.log(res);
+    let result= concate(arr,i)
+    // concate(arr,i)
+console.log(result);
    
 
 
