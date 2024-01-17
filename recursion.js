@@ -1,27 +1,15 @@
 let arr=["apple","orange",'pineapple',"watermelon"]
-let i=0
-let res=""
-// var hai
 
-function concate(arr,i){
-    
-    if(i===arr.length)
-    {
-        
-        return res
-    }
-
-    res+=arr[i]
-    
-   return concate(arr,++i)
-    
+function concate(arr,i = 0){
+    if(i===arr.length-1) return arr[i]
+    return  concate(arr,i+1) + arr[i]
 }
 
-// let str=""
-    let result= concate(arr,i)
-    // concate(arr,i)
-console.log(result);
+console.log(concate(arr));
+
+
    
+
 
 
 
