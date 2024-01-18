@@ -285,6 +285,7 @@ class linked{
             i++
         }
     }
+    
 }
 
 const list=new linked()

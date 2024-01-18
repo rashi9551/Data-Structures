@@ -80,7 +80,35 @@ class LinkedList{
             this.tail=prev
         }
         this.size--
+        console.log("ithu tail aahnu",this.tail);
     }
+    rotate(k) {
+        
+    
+        if(k>this.size)
+        {
+            k=k-size
+        }
+    
+      
+    
+        let current = this.head;
+    
+        for (let i = 1; i < this.size - k && current; i++) {
+            current = current.next;
+        }
+        let newHead = current.next;
+        current.next = null;
+        this.tail.next = this.head;
+        this.head = newHead;
+        this.tail = current;
+    }
+    
+    
+     
+
+
+    
 }
 
 
@@ -99,5 +127,6 @@ list.prepend(1)
 list.append(10)
 list.removeFront()
 list.removrEnd()
+list.rotate(2)
 list.print()
 list.getSize()
