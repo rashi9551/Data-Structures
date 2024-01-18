@@ -285,6 +285,35 @@ class linked{
             i++
         }
     }
+    middleDelete(){
+        if(this.isEmpty()){
+            return console.log("its empty");
+        }
+        let slow=this.head
+        let fast=this.head
+        let prev=null
+
+        while(fast&&fast.next)
+        {
+            prev=slow
+            slow=slow.next
+            fast=fast.next.next
+        }
+        prev.next=slow.next
+        
+    }
+    reverseyy(){
+        let prev=null
+        let curr=this.head
+        while(curr)
+        {
+            let next=curr.next
+            curr.next=prev
+            prev=curr
+            curr=next
+        }
+        this.head=prev
+    }
     
 }
 
@@ -307,6 +336,8 @@ list.insertAfter(5,6)
 
 
 list.reverse()
+list.reverseyy()
+list.middleDelete()
 console.log(list.search(2));
 list.print()
 

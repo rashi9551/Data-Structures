@@ -151,7 +151,21 @@ class LinkedList{
         console.log("middley",slow.val);
     }
     middleDelete(){
-        
+        if(this.isEmpty()){
+            return console.log("its empty");
+        }
+        let slow=this.head
+        let fast=this.head
+
+        while(fast&&fast.next)
+        {
+            slow=slow.next
+            fast=fast.next.next
+        }
+        let prev=slow.prev
+        prev.next=slow.next
+        slow.next.prev=prev
+
     }
 }
 const list=new LinkedList()
@@ -165,6 +179,7 @@ list.append(7)
 list.removeBefore(1)
 list.insertBefore(11,1)
 list.middle()
+list.middleDelete()
 // list.removeFront()
 // list.removeEnd()
 
