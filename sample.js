@@ -167,6 +167,29 @@ class LinkedList{
         slow.next.prev=prev
 
     }
+    removeDuplicates(head) {
+        if (head === null) {
+          return head;
+        }
+      
+        const seen = new Set();
+        let current = head;
+        let previous = null;
+      
+        while (current !== null) {
+          if (seen.has(current.val)) {
+            // Remove the current node (skip it)
+            previous.next = current.next;
+          } else {
+            // Add the current node's data to the set
+            seen.add(current.val);
+            previous = current;
+          }
+      
+          // Move to the next node
+          current = current.next;
+        }
+    }
 }
 const list=new LinkedList()
 
