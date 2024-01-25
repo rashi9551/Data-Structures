@@ -51,42 +51,91 @@
 
 
 
+// class Node{
+//     constructor(value)
+//     {
+//         this.value=value
+//         this.next=null
+//     }
+// }
+
+// class Stack{
+//     constructor()
+//     {
+//         this.top=null
+
+//     }
+//     push(value)
+//     {
+//         const node=new Node(value)
+//         node.next=this.top
+//         this.top=node
+//     }
+//     pop(){
+//         let top=this.top
+//         this.top.next=this.top
+//         return top
+//     }
+//     peek(){
+//         console.log(this.top);
+//     }
+
+// }
+
+// const stack=new Stack()
+// stack.push(8)
+// stack.push(7)
+// stack.push(6)
+// stack.push(5)
+// stack.push(4)
+// stack.push(2)
+// console.log(stack.pop());
+
+
 class Node{
     constructor(value)
     {
         this.value=value
         this.next=null
     }
+
 }
 
-class Stack{
-    constructor()
-    {
+class stack{
+    constructor(){
         this.top=null
-
     }
+
     push(value)
     {
         const node=new Node(value)
-        node.next=this.top
-        this.top=node
+        if(this.top==null)
+        {
+            this.top=node
+        }else{
+            node.next=this.top
+            this.top=node
+        }
     }
     pop(){
-        let top=this.top
-        this.top.next=this.top
-        return top
+        this.top=this.top.next
     }
-    peek(){
-        console.log(this.top);
+    peek()
+    {
+        console.log(this.top.value);
     }
-
+    
+    
 }
 
-const stack=new Stack()
-stack.push(8)
-stack.push(7)
-stack.push(6)
-stack.push(5)
-stack.push(4)
-stack.push(2)
-console.log(stack.pop());
+const stackey=new stack()
+
+stackey.push(6)
+stackey.push(5)
+stackey.push(4)
+stackey.push(3)
+stackey.push(2)
+stackey.peek()
+stackey.pop()
+stackey.peek()
+

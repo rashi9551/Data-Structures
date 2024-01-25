@@ -42,54 +42,113 @@
 
 // queue with list  
 
-class Node{
-    constructor(value){
-        this.value=value
-        this.next=null
-    }
-}
-class queue{
-    constructor(){
-        this.front=null
-        this.rear=null
-    }
+// class Node{
+//     constructor(value){
+//         this.value=value
+//         this.next=null
+//     }
+// }
+// class queue{
+//     constructor(){
+//         this.front=null
+//         this.rear=null
+//     }
 
-    enque(value){
-        const node=new Node(value)
-        if(this.front===null){
-            this.front=node
-            this.rear=node
-        }else{
-            this.rear.next=node
-            this.rear=node
-        }
-    }
-    deque(){
-        if(this.rear===this.front){
-            this.rear=null
-            this.front=null
-        }else{
-            let val=this.front
-            this.front=this.front.next
-            return val 
+//     enque(value){
+//         const node=new Node(value)
+//         if(this.front===null){
+//             this.front=node
+//             this.rear=node
+//         }else{
+//             this.rear.next=node
+//             this.rear=node
+//         }
+//     }
+//     deque(){
+//         if(this.rear===this.front){
+//             this.rear=null
+//             this.front=null
+//         }else{
+//             let val=this.front
+//             this.front=this.front.next
+//             return val 
           
-        }
+//         }
         
-    }
-    peek(){
-        console.log(this.front.value);
-    }
+//     }
+//     peek(){
+//         console.log(this.front.value);
+//     }
 
-}
+// }
 
-const Queue=new queue()
-Queue.enque(1)
-Queue.enque(2)
-Queue.enque(4)
-Queue.enque(5)
-Queue.enque(6)
-Queue.enque(7)
-Queue.enque(8)
-console.log(Queue.deque());
-Queue.peek()
+// const Queue=new queue()
+// Queue.enque(1)
+// Queue.enque(2)
+// Queue.enque(4)
+// Queue.enque(5)
+// Queue.enque(6)
+// Queue.enque(7)
+// Queue.enque(8)
+// console.log(Queue.deque());
+// Queue.peek()
+
+
+// class Node{
+//     constructor(value)
+//     {
+//         this.value=value
+//         this.next=null
+//     }
+// }
+
+// class queue{
+//     constructor()
+//     {
+//         this.front=null
+//         this.rear=null
+
+//     }
+//     enqueue(value){
+//         const node=new Node(value)
+//         if(this.front==null)
+//         {
+//             this.front=node
+//             this.rear=node
+//         }else{
+//             this.rear.next=node
+//             this.rear=node
+//         }
+//     }
+//     dequeue()
+//     {
+//         this.front=this.front.next
+//     }
+//     peek(){
+//         console.log(this.front.value);
+//     }
+//     print()
+//     {
+//         let curr=this.front
+//         while(curr){
+//             console.log(curr.value);
+//             curr=curr.next
+//         }
+//     }
+// }
+
+// const Queue=new queue()
+
+// Queue.enqueue(6)
+// Queue.enqueue(5)
+// Queue.enqueue(4)
+// Queue.enqueue(3)
+// Queue.enqueue(2)
+// Queue.enqueue(1)
+// Queue.dequeue()
+// Queue.peek()
+// Queue.print()
+
+
+
 

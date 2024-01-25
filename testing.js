@@ -1,137 +1,98 @@
-class Node{
-    constructor(val){
-        this.val=val
-        this.next=null
+let arr=[2,8,7,5,7,9,7,5,0]
+
+
+// let k=0
+
+// while(k<arr.length)
+// {
+//     for(i=0;i<arr.length;i++)
+//     {
+//         if(arr[i]>arr[i+1])
+//         {
+//             let temp=arr[i+1]
+//             arr[i+1]=arr[i]
+//             arr[i]=temp
+//         }
+//     }
+//     k++
+// }
+// console.log(arr);
+
+// for(i=0;i<arr.length;i++)
+// {
+//     j=i
+//     while(j>0&&arr[j]<arr[j-1])
+//     {
+//         let temp=arr[j-1]
+//         arr[j-1]=arr[j]
+//         arr[j]=temp
+//         j--
+//     }
+// }
+// console.log(arr);
+
+// for(i=0;i<arr.length;i++)
+// {
+//     min=i
+//     for(j=i;j<arr.length;j++)
+//     {
+//         if(arr[min]>arr[j])
+//         {
+//             min=j
+//         }
+//     }
+//     let temp=arr[min]
+//     arr[min]=arr[i]
+//     arr[i]=temp
+// }
+// console.log(arr);
+
+// function quickSort(arr)
+// {
+//     if(arr.length<2)
+//     {
+//         return arr
+//     }
+//     let pivot=arr[0]
+//     let left=[]
+//     let right=[]
+//     for(i=1;i<arr.length;i++)
+//     {
+//         if(arr[i]>pivot){
+//             right.push(arr[i])
+//         }else{
+//             left.push(arr[i])
+//         }
+//     }
+//     return [...quickSort(left),pivot,...quickSort(right)]
+// }
+
+// console.log(quickSort(arr));
+
+function mergeSort(arr){
+    if(arr.length<2){
+        return arr
     }
+
+    let mid=Math.floor(arr.length/2)
+    let left=arr.slice(0,mid)
+    let right=arr.splice(mid)
+
+    return merge(mergeSort(left),mergeSort(right))
 }
 
-class LinkedList{
-    constructor()
+function merge(left,right){
+    let sorted=[]
+    while(left.length && right.length)
     {
-        this.head=null
-        this.tail=null
-        this.size==0
-    }
-
-    isEmpty(){
-        return this.size===0
-    }
-    prepend(value)
-    {
-        const node=new Node(value)
-        if(this.size===0){
-            this.head=node
-        }
-        else{
-            node.next=this.head
-            this.head=node
-        }
-        this.size++
-    }
-    print()
-    {
-        let curr=this.head
-        if(this.isEmpty()){
-            return console.log("its empty");
-        }
-        else{
-            while(curr)
-            {
-                console.log(curr.val);
-                curr=curr.next
-            }
+        if(left[0]<right[0]){
+            sorted.push(left.shift())
+        }else{
+            sorted.push(right.shift())
         }
     }
-    isplaindrome(){
-        if(!this.head||!this.head.next){
-            console.log("illla");
-            return 
-        }
-
-        let prev=null
-        let slow=this.head
-        let fast=this.head
-        while(fast&&fast.next)
-        {
-            fast=fast.next.next
-            let next=slow.next
-            slow.next=prev
-            prev=slow
-            slow=next
-        }
-        if(fast){
-            slow=slow.next
-        }
-
-        while(slow){
-            if(slow.val!=prev.val){
-                console.log("its not palindrome");
-                return
-            }
-            slow=slow.next
-            prev=prev.next
-
-        }
-        console.log("its palinderome");
-    }
-    arrayToLinked(arr)
-    {
-        this.head=new Node(arr[0])
-        let curr=this.head
-        let i=1
-        while(i<arr.length)
-        {
-            curr.next=new Node(arr[i])
-            curr=curr.next
-            i++
-
-        }
-    }
-    deleteMidlle(){
-        let slow=this.head
-        let fast=this.head
-        let prev=null
-
-        while(fast&&fast.next)
-        {
-            fast=fast.next.next
-            prev=slow
-            slow=slow.next
-        }
-        prev.next=slow.next
-        console.log(prev.val,slow.val);
-    }
-
-
-
-
-
-    midlley(){
-        let slow=this.head
-        let fast=this.head
-        let prev=null
-
-        while(fast&&fast.next){
-            fast=fast.next.next
-            prev=slow
-            slow=slow.next
-
-        }
-        prev.next=slow.next
-    }
-    
+    return [...sorted,...left,...right]
 }
-const list=new LinkedList()
 
-// list.prepend(4)
-// list.prepend(3)
-// list.prepend(6)
-// list.prepend(6)
-// list.prepend(3)
-// list.prepend(4)
-let arr=[1,2,3,4,5,7]
-list.arrayToLinked(arr)
-// list.deleteMidlle()
-list.midlley()
-list.print()
-// list.isplaindrome()
+console.log(mergeSort(arr));
+
