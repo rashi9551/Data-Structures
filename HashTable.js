@@ -96,7 +96,6 @@ class HashTable{
     set(key,val)
     {
         let index=this.hash(key)
-
         const bucket=this.table[index]
         if(!bucket){
             this.table[index]=[[key,val]]

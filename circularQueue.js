@@ -8,14 +8,14 @@ class circularQue{
     }
     isFull()
     {
-        return this.length==0
+        return this.length==this.capacity
     }
     isEmpty(){
         return this.length===0
     }
     enqueue(value)
     {
-        if(this.isFull)
+        if(!this.isFull)
         {
             this.rear=(this.rear+1) % this.capacity
             this.item[this.rear]=value
