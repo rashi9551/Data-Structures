@@ -17,8 +17,8 @@ function recursion(arr,i){
     
     return recursion(arr,i+1)+arr[i]
 }
-let result=recursion(arr,0)
-console.log(result);
+
+console.log(recursion(arr,0));
    
 
 
