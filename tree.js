@@ -187,3 +187,125 @@
 // treeyey.inOrder(treeyey.root)
 // console.log(treeyey.isBst(treeyey.root,0));
 
+
+class Node{
+    constructor(value)
+    {
+        this.value=value
+        this.left=null
+        this.right=null
+    }
+}
+class tree{
+    constructor()
+    {
+        this.root=null
+    }
+
+    insert(value)
+    {
+        const node=new Node(value)
+        if(!this.root){
+            this.root=node
+        }
+        else{
+            this.insertHelper(this.root,node)
+        }
+    }
+
+
+    insertHelper(root,node)
+    {
+        if(node.value<root.value)
+        {
+            if(!root.left)
+            {
+                root.left=node
+            }else{
+                return this.insertHelper(root.left,node)
+            }
+        }
+        else{
+            if(!root.right)
+            {
+                root.right=node
+            }else{
+                return this.insertHelper(root.right,node)
+            }
+        }
+    }
+    max(root){
+        if(!root.right)
+        {
+            return root.value
+        }else{
+            return this.max(root.right)
+        }
+    }
+
+    search(root,target){
+        if(!root)
+        {
+            return false
+        }else{
+            if(root.value===target)
+            {
+                return true
+            }
+            else if(target<root.value)
+            {
+                return this.search(root.left,target)
+            }
+            else{
+                return this.search(root.right,target)
+            }
+        }
+    }
+
+    min(root){
+        if(!root.left)
+        {
+            return root.value
+        }else{
+            return this.min(root.left)
+        }
+    }
+
+    height(root)
+    {
+        if(!root)
+        {
+            return 0
+        }
+        let left=this.height(root.left)
+        let right=this.height(root.right)
+        return Math.max(left,right)+1
+    }
+
+    isBST(node) {
+        if (node === null) return true;
+        let min=node.left
+        let max=node.right
+        if ((min !== null && node.value <= min.value) ||
+            (max !== null && node.value >= max.value)) {
+            return false;
+        }
+    
+        return this.isBST(node.left) && this.isBST(node.right);
+    }
+    
+    
+}
+
+
+const t=new tree()
+t.insert(10)
+t.insert(3)
+t.insert(14)
+t.insert(1)
+t.insert(19)
+console.log(t.search(t.root,14));
+console.log(t.max(t.root));
+console.log(t.min(t.root));
+console.log(t.height(t.root));
+console.log(t.isBST(t.root,));

@@ -1,5 +1,5 @@
 class MinHeap {
-    constructor(arr) {
+    constructor() {
       this.heap = [];
       
     }
@@ -91,11 +91,10 @@ class MinHeap {
   }
   
   
-let arr=[7,9,4,6,2,1]
 let m = new MinHeap();
-m.buildHeap(arr)
-console.log(m.heap);
-
-  
+m.insert(5)
+m.insert(4)
+m.insert(8)
+m.display()
 
   
