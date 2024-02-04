@@ -90,6 +90,24 @@ class graph{
     
         dfsHelper(startVertex);
     }
+
+    display() {
+        const words = [];
+    
+        const displayHelper = (node, currentWord) => {
+            if (node.isEnd) {
+                words.push(currentWord); 
+            }
+            
+            for (let char in node.children) {
+                displayHelper(node.children[char], currentWord + char);
+            }
+        };
+        
+        displayHelper(this.root, '');
+    
+        console.log(words);
+      }
 }
 
 const G=new graph()

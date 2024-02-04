@@ -212,6 +212,14 @@ class tree{
             this.insertHelper(this.root,node)
         }
     }
+    inOrder(root){
+                if(root)
+                {
+                    this.inOrder(root.left)
+                    console.log(root.value)
+                    this.inOrder(root.right)
+                }
+            }
 
 
     insertHelper(root,node)
@@ -299,13 +307,14 @@ class tree{
 
 
 const t=new tree()
+t.insert(5)
 t.insert(10)
-t.insert(3)
-t.insert(14)
-t.insert(1)
-t.insert(19)
-console.log(t.search(t.root,14));
-console.log(t.max(t.root));
-console.log(t.min(t.root));
-console.log(t.height(t.root));
-console.log(t.isBST(t.root,));
+t.insert(15)
+t.inOrder(t.root)
+t.insert(5)
+t.inOrder(t.root)
+// console.log(t.search(t.root,14));
+// console.log(t.max(t.root));
+// console.log(t.min(t.root));
+// console.log(t.height(t.root));
+// console.log(t.isBST(t.root,));
