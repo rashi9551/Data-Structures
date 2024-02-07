@@ -208,7 +208,7 @@ class tree{
         let path2=this.findPath(this.root,node2)
         console.log(path1,path2);
         let common=0
-        for(let i=0;i<Math.min(path1.length,path2.length);i++)
+        for(let i=0;i<path1.length;i++)
         {
             if(path1[i]===path2[i])
             {
