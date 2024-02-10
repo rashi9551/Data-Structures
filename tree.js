@@ -107,6 +107,15 @@ class Node{
         }
         return root
     }
+    preOrder(root)
+    {
+        if(root)
+        {
+            console.log(root.value);
+            this.preOrder(root.left)
+            this.preOrder(root.right)
+        }
+    }
     inOrder(root)
     {
         if(root)
@@ -190,19 +199,10 @@ class Node{
   const t=new tree()
   
   t.insert(8)
-  t.insert(5)
-  t.insert(10)
-  t.insert(4)
-  t.insert(6)
-  t.insert(9)
-  t.insert(14)
-  // t.insert(8.5)
-  // t.delete(10)
-  console.log(t.findPath(14));
-  t.inOrder(t.root)
-  console.log("ancestor",t.ancestor(8.5,14));
-  console.log(t.closest(t.root,5));
-  console.log(t.height(t.root));
-  console.log(" ");
-  t.bfs()
+t.insert(9)
+t.insert(4)
+t.insert(10)
+t.insert(6)
+t.preOrder(t.root)
+
   

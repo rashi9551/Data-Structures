@@ -55,6 +55,23 @@ class trie{
         }
         return true
     }
+    display() {
+        const words = [];
+    
+        const displayHelper = (node, currentWord) => {
+            if (node.endNode) {
+                words.push(currentWord); 
+            }
+            
+            for (let char in node.children) {
+                displayHelper(node.children[char], currentWord + char);
+            }
+        };
+        
+        displayHelper(this.root, '');
+    
+        console.log(words);
+      }
 }
 
 const t=new trie()
